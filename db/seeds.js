@@ -5,6 +5,7 @@
 // fields are saved to the database.
 
 let Donut = require('../models/Donut.js')
+let Ingredients = require('../models/Ingredient')
 
 let newDonuts = [
   {
@@ -38,8 +39,11 @@ let newDonuts = [
     qty: 23
   }
 ]
+
 Donut.remove({})
-.then(Donut.create(newDonuts))
-.then(donuts => {
-  console.log('Saved Donuts', donuts)
-})
+  .then(() => { 
+    Ingredients.remove({}) })
+  .then(
+    Donut.create(newDonuts).then(()=>{
+    console.log('Data Done Seeding')
+  }))

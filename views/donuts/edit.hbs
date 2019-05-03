@@ -8,11 +8,11 @@
 
 
 		<form action="/{{donut._id}}?_method=PUT" method="POST">
-			<input type="text" name="name" placeholder={{donut.name}}>
-			<input type="text" name="description" placeholder={{donut.description}}>
-			<input type="text" name="img" placeholder={{donut.img}}>
-			<input type="number" name="price" placeholder={{donut.price}}>
-			<input type="number" name="qty" placeholder={{donut.qty}}>
+			<input type="text" name="name" value={{donut.name}}>
+			<input type="text" name="description" value={{donut.description}}>
+			<input type="text" name="img" value={{donut.img}}>
+			<input type="number" name="price" value={{donut.price}}>
+			<input type="number" name="qty" value={{donut.qty}}>
 			<input type="submit" value="Submit">
 		</form>
 

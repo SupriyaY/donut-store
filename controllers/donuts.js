@@ -3,6 +3,7 @@
 //= =====================
 // require the Donut model
 const Donut = require("../models/Donut");
+const Ingredient = require('../models/Ingredient')
 
 const donutController = {
   //= =====================
@@ -27,7 +28,12 @@ const donutController = {
   // Create a function that renders a single Donut's show page
   show: function(req, res) {
     Donut.findById(req.params.id).then(donut => {
-      res.render("donuts/show", { donut });
+      Ingredient.find({donutId: req.params.id}).then((ingredients)=>{
+        console.log(donut)
+        console.log(ingredients)
+        res.render("donuts/show", { donut, ingredients });
+      })
+     
     });
   },
   //= =====================
