@@ -1,8 +1,7 @@
 let express = require('express')
 let router = express.Router()
 const donutController = require('../controllers/donuts.js')
-// Example Route
-// router.get('/', someController.index)
+const ingredientController = require('../controllers/ingredients.js')
 
 //= =====================
 // INDEX
@@ -41,7 +40,7 @@ router.post('/',donutController.create)
 
 router.get("/:id/edit",donutController.edit)
 
-// router.get('/:id/edit',donutController.edit)
+
 //= =====================
 // UPDATE
 //= =====================
@@ -59,5 +58,14 @@ router.put("/:id/buy",donutController.buy)
 // Create a DELETE delete route "/:id" that triggers the donut controller delete function
 // router.get('/:id',donutController.delete)
 router.delete('/:id',donutController.delete)
+
+
+router.get("/:id/ingredient/:ingredientId", ingredientController.show)
+router.post('/:id/ingredient', ingredientController.create)
+router.get("/:id/ingredient/:ingredientId/edit", ingredientController.edit)
+router.put("/:id/ingredient/:ingredientId/", ingredientController.update)
+router.delete('/:id/ingredient/:ingredientId', ingredientController.delete)
+
+
 
 module.exports = router
